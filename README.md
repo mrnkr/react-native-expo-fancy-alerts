@@ -78,7 +78,7 @@ export default class MyComponent extends Component {
           <Text>Make me think I falied :(</Text>
         </TouchableOpacity>
 
-        <Loading visible={isLoading} />
+        <LoadingIndicator visible={isLoading} />
 
         <FancyAlert
           visible={errorAlert.visible}
