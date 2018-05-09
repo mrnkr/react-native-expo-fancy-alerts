@@ -104,18 +104,20 @@ export default class MyComponent extends Component {
 
 ### LoadingIndicator
 
-| Property | Type | Required | Default | Description |
-| visible | bool | yes | n/a | Whether the loading indicator should be shown |
+| Property | Type | Required | Default | Description                                   |
+| -------- | ---- | -------- | ------- | --------------------------------------------- |
+| visible  | bool | yes      | n/a     | Whether the loading indicator should be shown |
 
 ### FancyAlert
 
-| Property | Type | Required | Default | Description |
-| visible | bool | yes | n/a | Whether the alert should be visible |
-| icon | node | yes | n/a | The icon to show in the alert |
-| color | string | yes | n/a | The color to use for the button and the icon container |
-| message | string | yes | n/a | The message to show the user |
-| btnText | string | yes | n/a | The text to put inside the button |
-| onRequestClose | func | no | () => null | The action to run when the user taps the button |
+| Property       | Type   | Required | Default    | Description                                            |
+| -------------- | ------ | -------- | ---------- | ------------------------------------------------------ |
+| visible        | bool   | yes      | n/a        | Whether the alert should be visible                    |
+| icon           | node   | yes      | n/a        | The icon to show in the alert                          |
+| color          | string | yes      | n/a        | The color to use for the button and the icon container |
+| message        | string | yes      | n/a        | The message to show the user                           |
+| btnText        | string | yes      | n/a        | The text to put inside the button                      |
+| onRequestClose | func   | no       | () => null | The action to run when the user taps the button        |
 
 * NOTE -
   No dialog is closed by tapping the blurred background.
