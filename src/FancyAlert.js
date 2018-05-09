@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     width: ALERT_WIDTH,
+    paddingHorizontal: 8,
     borderRadius: 16,
     backgroundColor: '#FFFFFF',
   },
@@ -60,7 +61,7 @@ const FancyAlert = ({
 
         <Text style={[
             Platform.OS === 'ios' ? human.body : material.body1,
-            { top: -16 },
+            { top: -16, textAlign: 'center' },
           ]}
         >
           {message}
