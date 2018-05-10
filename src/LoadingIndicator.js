@@ -29,7 +29,7 @@ const LoadingIndicator = ({ visible }) => (
   <Modal visible={visible} animationType="fade" transparent onRequestClose={() => null}>
     <View style={styles.container}>
       <View style={styles.content}>
-        <ActivityIndicator size="large" />
+        <ActivityIndicator color="#95A5A6" size="large" />
       </View>
     </View>
   </Modal>
