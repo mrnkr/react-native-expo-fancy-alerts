@@ -5,7 +5,7 @@
 ### Intro
 
 I used to be a Nativescript developer. One of the last libraries that I started using was [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) and I really loved the extra touch of style it added to my interfaces.
-As soon as I ran into the need for simple dialogs in my newest app which I'm developing with React Native I decided to go ahead and make something that looked like fancy alerts. For now, this is a very basic, simple implementation with only the features I need right now and, unfortunately, still has layour issues when ran on Android. The idea is to make this a more general purpose library and make it compatible with Android and iOS seamlessly so that releasing it as a module on NPM actually makes sense.
+As soon as I ran into the need for simple dialogs in my newest app which I'm developing with React Native I decided to go ahead and make something that looked like fancy alerts. For now, this is a very basic, simple implementation with only the features I need right now. The idea is to make this a more general purpose library so that releasing it as a module on NPM actually makes sense.
 
 ### The result will be something like this...
 
@@ -125,3 +125,4 @@ export default class MyComponent extends Component {
 ## Changelog
 
 * 0.0.1 - Initial implementation - has layout issues on Android that WILL be fixed
+* 0.0.2 - Android issue fixed (the sooner I find a nicer solution the sooner I'll implement it)
