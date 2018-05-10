@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   iconCircle: {
-    top: -32,
     height: 64,
     width: 64,
     borderRadius: 32,
@@ -54,8 +53,12 @@ const FancyAlert = ({
 }) => (
   <Modal visible={visible} animationType="fade" transparent onRequestClose={onRequestClose}>
     <View style={styles.container}>
+      <View style={[styles.iconCircle, { top: 32, backgroundColor: color }]}>
+        {icon}
+      </View>
+
       <View style={styles.content}>
-        <View style={[styles.iconCircle, { backgroundColor: color }]}>
+        <View style={[styles.iconCircle, { top: -32, backgroundColor: color }]}>
           {icon}
         </View>
 
