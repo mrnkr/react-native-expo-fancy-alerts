@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   content: {
-    position: 'absolute',
     flexDirection: 'column',
     alignItems: 'center',
     width: ALERT_WIDTH,
