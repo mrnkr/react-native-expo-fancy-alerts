@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Modal, Text, TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native';
-import { material, human, iOSUIKit } from 'react-native-typography';
 import PropTypes from 'prop-types';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
