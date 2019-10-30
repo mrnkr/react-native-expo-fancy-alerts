@@ -89,7 +89,15 @@ export default class MyComponent extends Component {
               color="#FFFFFF"
             />
           }
-          color="#C3272B"
+          customize={{
+            accentColor: '#C3272B',
+            backgroundColor: '#FFFFFF',
+            contentTextStyle: {}, // optional
+            btnTextStyle: {
+              color: '#FFFFFF',
+              marginLeft: 8
+            }
+          }}
           message={errorAlert.message}
           btnText="OK"
           onRequestClose={this.hideErrorAlert}
@@ -114,7 +122,7 @@ export default class MyComponent extends Component {
 | -------------- | ------ | -------- | ---------- | ------------------------------------------------------ |
 | visible        | bool   | yes      | n/a        | Whether the alert should be visible                    |
 | icon           | node   | yes      | n/a        | The icon to show in the alert                          |
-| color          | string | yes      | n/a        | The color to use for the button and the icon container |
+| customize      | object | yes      | n/a        | `{ accentColor: string, backgroundColor: string, contentTextStyle: StyleSheet, btnTextStyle: StyleSheet }` |
 | message        | string | yes      | n/a        | The message to show the user                           |
 | btnText        | string | yes      | n/a        | The text to put inside the button                      |
 | onRequestClose | func   | no       | () => null | The action to run when the user taps the button        |
@@ -126,3 +134,4 @@ export default class MyComponent extends Component {
 
 * 0.0.1 - Initial implementation - has layout issues on Android that WILL be fixed
 * 0.0.2 - Android issue fixed (the sooner I find a nicer solution the sooner I'll implement it)
+* 0.0.3 - Added extra customization options

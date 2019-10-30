@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     width: ALERT_WIDTH,
     paddingHorizontal: 8,
     borderRadius: 16,
-    backgroundColor: '#FFFFFF',
   },
   iconCircle: {
     height: 64,
@@ -34,7 +33,6 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: '#FFFFFF',
   },
   btnPrimary: {
     width: ALERT_WIDTH - 16,
@@ -48,35 +46,26 @@ const styles = StyleSheet.create({
 });
 
 const FancyAlert = ({
-  visible, onRequestClose, icon, color, message, btnText,
+  visible, onRequestClose, icon, message, btnText, customize: { accentColor, backgroundColor, contentTextStyle, btnTextStyle }
 }) => (
   <Modal visible={visible} animationType="fade" transparent onRequestClose={onRequestClose}>
     <View style={styles.container}>
-      <View style={[styles.iconCircle, { top: 32, backgroundColor: color }]}>
+      <View style={[styles.iconCircle, { top: 32, backgroundColor, borderColor: backgroundColor }]}>
         {icon}
       </View>
 
-      <View style={styles.content}>
-        <View style={[styles.iconCircle, { top: -32, backgroundColor: color }]}>
+      <View style={[styles.content, { backgroundColor }]}>
+        <View style={[styles.iconCircle, { top: -32, backgroundColor, borderColor: backgroundColor }]}>
           {icon}
         </View>
 
-        <Text style={[
-            Platform.OS === 'ios' ? human.body : material.body1,
-            { top: -16, textAlign: 'center' },
-          ]}
-        >
+        <Text style={[contentTextStyle, { top: -16, textAlign: 'center' }]}>
           {message}
         </Text>
 
         <TouchableOpacity onPress={onRequestClose}>
-          <View style={[styles.btnPrimary, { backgroundColor: color }]}>
-            <Text
-              style={[
-                Platform.OS === 'ios' ? iOSUIKit.bodyEmphasized : material.button,
-                { color: '#FFFFFF', marginLeft: 8 },
-              ]}
-            >
+          <View style={[styles.btnPrimary, { accentColor }]}>
+            <Text style={btnTextStyle}>
               {btnText}
             </Text>
           </View>
@@ -89,9 +78,14 @@ const FancyAlert = ({
 FancyAlert.propTypes = {
   visible: PropTypes.bool.isRequired,
   icon: PropTypes.node.isRequired,
-  color: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
   btnText: PropTypes.string.isRequired,
+  customize: PropTypes.shape({
+    accentColor: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string.isRequired,
+    contentTextStyle: PropTypes.object,
+    btnTextStyle: PropTypes.object,
+  }).isRequired,
   onRequestClose: PropTypes.func,
 };
 

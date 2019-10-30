@@ -1,6 +1,6 @@
 {
   "name": "react-native-expo-fancy-alerts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description":
     "Inspired on nativescript-fancyalert by Nathan Walker - A simple, basic implementation of the beautiful alerts that lib brings to the table",
   "main": "index.js",
