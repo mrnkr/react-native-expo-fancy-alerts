@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Modal, Text, TouchableOpacity, StyleSheet, Platform, Dimensions } from 'react-native';
+import { View, Modal, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -49,12 +49,12 @@ const FancyAlert = ({
 }) => (
   <Modal visible={visible} animationType="fade" transparent onRequestClose={onRequestClose}>
     <View style={styles.container}>
-      <View style={[styles.iconCircle, { top: 32, backgroundColor, borderColor: backgroundColor }]}>
+      <View style={[styles.iconCircle, { top: 32, backgroundColor: accentColor, borderColor: backgroundColor }]}>
         {icon}
       </View>
 
       <View style={[styles.content, { backgroundColor }]}>
-        <View style={[styles.iconCircle, { top: -32, backgroundColor, borderColor: backgroundColor }]}>
+        <View style={[styles.iconCircle, { top: -32, backgroundColor: accentColor, borderColor: backgroundColor }]}>
           {icon}
         </View>
 
@@ -63,7 +63,7 @@ const FancyAlert = ({
         </Text>
 
         <TouchableOpacity onPress={onRequestClose}>
-          <View style={[styles.btnPrimary, { accentColor }]}>
+          <View style={[styles.btnPrimary, { backgroundColor: accentColor }]}>
             <Text style={btnTextStyle}>
               {btnText}
             </Text>
