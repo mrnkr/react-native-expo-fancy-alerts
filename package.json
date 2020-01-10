@@ -1,14 +1,12 @@
 {
   "name": "react-native-expo-fancy-alerts",
-  "version": "0.0.3",
-  "description":
-    "Inspired on nativescript-fancyalert by Nathan Walker - A simple, basic implementation of the beautiful alerts that lib brings to the table",
+  "version": "1.0.0",
+  "description": "Inspired on nativescript-fancyalert by Nathan Walker - A simple, basic implementation of the beautiful alerts that lib brings to the table",
   "main": "index.js",
   "peerDependencies": {
     "prop-types": "^15.6.1",
     "react": "16.3.0-alpha.1",
-    "react-native":
-      "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz"
   },
   "repository": {
     "type": "git",

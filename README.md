@@ -1,17 +1,26 @@
 # React Native Fancy Alerts
 
-### Inspired on [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) - A simple, basic implementation of the beautiful alerts that lib brings to the table
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+[![Twitter Follow][twitter-image]][twitter-url]
+
+[npm-image]:http://img.shields.io/npm/v/react-native-expo-fancy-alerts.svg
+[npm-url]:https://npmjs.org/package/react-native-expo-fancy-alerts
+[downloads-image]:http://img.shields.io/npm/dm/react-native-expo-fancy-alerts.svg
+[twitter-image]:https://img.shields.io/twitter/follow/xmr_nkr.svg?style=social&label=Follow%20me
+[twitter-url]:https://twitter.com/xmr_nkr
+
+## Inspired on [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) - A simple, basic implementation of the beautiful alerts that lib brings to the table
 
 ### Intro
 
 I used to be a Nativescript developer. One of the last libraries that I started using was [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) and I really loved the extra touch of style it added to my interfaces.
-As soon as I ran into the need for simple dialogs in my newest app which I'm developing with React Native I decided to go ahead and make something that looked like fancy alerts. For now, this is a very basic, simple implementation with only the features I need right now. The idea is to make this a more general purpose library so that releasing it as a module on NPM actually makes sense.
+As soon as I ran into the need for simple dialogs in my newest app which I'm developing with React Native I decided to go ahead and make something that looked like fancy alerts.
 
 ### The result will be something like this...
 
 | ![Screenshot loading](screenshots/loading.png) | ![Screenshot success](screenshots/success.png) | ![Screenshot error](screenshots/error.png) |
 | ---------------------------------------------- | ---------------------------------------------- | ------------------------------------------ |
-
 
 ### Quick Start
 
@@ -133,5 +142,6 @@ export default class MyComponent extends Component {
 ## Changelog
 
 * 0.0.1 - Initial implementation - has layout issues on Android that WILL be fixed
-* 0.0.2 - Android issue fixed (the sooner I find a nicer solution the sooner I'll implement it)
+* 0.0.2 - Android issue fixed
 * 0.0.3 - Added extra customization options
+* 1.0.0 - Years later I decided to package everything and release 🎉🥳

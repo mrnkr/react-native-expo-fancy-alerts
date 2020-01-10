@@ -1,0 +1,66 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.21.1/libexec/bin/yarn.js publish --access=public
+
+PATH: 
+  /Users/mrnkr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Users/mrnkr/bin:/Users/mrnkr/flutter/bin:/Users/mrnkr/flutter/bin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  13.5.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/Cellar/yarn/1.21.1/libexec/lib/cli.js:136925:13)
+      at Interface.emit (events.js:305:20)
+      at Interface._ttyWrite (readline.js:882:16)
+      at ReadStream.onkeypress (readline.js:199:10)
+      at ReadStream.emit (events.js:305:20)
+      at emitKeys (internal/readline/utils.js:439:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1150:36)
+      at ReadStream.emit (events.js:305:20)
+      at addChunk (_stream_readable.js:341:12)
+
+npm manifest: 
+  {
+    "name": "react-native-expo-fancy-alerts",
+    "version": "0.0.3",
+    "description":
+      "Inspired on nativescript-fancyalert by Nathan Walker - A simple, basic implementation of the beautiful alerts that lib brings to the table",
+    "main": "index.js",
+    "peerDependencies": {
+      "prop-types": "^15.6.1",
+      "react": "16.3.0-alpha.1",
+      "react-native":
+        "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/mrnkr/react-native-expo-fancy-alerts.git"
+    },
+    "keywords": [
+      "javascript",
+      "react",
+      "react-native",
+      "alerts",
+      "dialogs",
+      "modals"
+    ],
+    "author": "Mr.NKR",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/mrnkr/react-native-expo-fancy-alerts/issues"
+    },
+    "homepage": "https://github.com/mrnkr/react-native-expo-fancy-alerts#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
