@@ -2,22 +2,16 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
-[![Twitter Follow][twitter-image]][twitter-url]
 
 [npm-image]:http://img.shields.io/npm/v/react-native-expo-fancy-alerts.svg
 [npm-url]:https://npmjs.org/package/react-native-expo-fancy-alerts
 [downloads-image]:http://img.shields.io/npm/dm/react-native-expo-fancy-alerts.svg
-[twitter-image]:https://img.shields.io/twitter/follow/xmr_nkr.svg?style=social&label=Follow%20me
-[twitter-url]:https://twitter.com/xmr_nkr
 
 ## Inspired on [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) - A simple, basic implementation of the beautiful alerts that lib brings to the table
 
 ### Intro
 
-I used to be a Nativescript developer. One of the last libraries that I started using was [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) and I really loved the extra touch of style it added to my interfaces.
-As soon as I ran into the need for simple dialogs in my newest app which I'm developing with React Native I decided to go ahead and make something that looked like fancy alerts.
-
-### The result will be something like this...
+Adaptation of [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) for react native. Compatible with expo 🤓
 
 | ![Screenshot loading](screenshots/loading.png) | ![Screenshot success](screenshots/success.png) | ![Screenshot error](screenshots/error.png) |
 | ---------------------------------------------- | ---------------------------------------------- | ------------------------------------------ |
@@ -25,96 +19,42 @@ As soon as I ran into the need for simple dialogs in my newest app which I'm dev
 ### Quick Start
 
 ```javascript
-import React, { Component } from "react";
-import { View } from "react-native";
-import { FancyAlert, LoadingIndicator } from "react-native-expo-fancy-alerts";
+import React from 'react';
+import { Text, TouchableOpacity, View } from 'react-native';
+import { FancyAlert } from 'react-native-expo-fancy-alerts';
 
-export default class MyComponent extends Component {
-  state = {
-    isLoading: false,
-    errorMessage: {
-      visible: false,
-      message: ""
-    }
-  };
+const App = () => {
+  const [visible, setVisible] = React.useState(false);
+  const toggleAlert = React.useCallback(() => {
+    setVisible(!visible);
+  }, [visible]);
 
-  startLoading = () => {
-    if (!this.state.isLoading) {
-      this.setState({ isLoading: true });
-    }
-  };
+  return (
+    <View>
+      <TouchableOpacity onPress={toggleAlert}>
+        <Text>Tap me</Text>
+      </TouchableOpacity>
 
-  finishLoading = () => {
-    if (this.state.isLoading) {
-      this.setState({ isLoading: false });
-    }
-  };
-
-  showErrorAlert = message => {
-    if (!this.state.errorAlert.visible) {
-      this.setState({ errorAlert: { visible: true, message } });
-    }
-  };
-
-  hideErrorAlert = () => {
-    if (this.state.errorAlert.visible) {
-      this.setState({ errorAlert: { visible: false, message: "" } });
-    }
-  };
-
-  simulateLoading = () => {
-    this.startLoading();
-
-    setTimeout(() => {
-      this.finishLoading();
-    }, 300);
-  };
-
-  fakeError = () => {
-    this.showErrorAlert("I failed... :(");
-  };
-
-  render = () => {
-    const { isLoading, errorMessage } = this.state;
-
-    return (
-      <View>
-        <TouchableOpacity onPress={this.simulateLoading}>
-          <Text>Load now!!</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={this.fakeError}>
-          <Text>Make me think I falied :(</Text>
-        </TouchableOpacity>
-
-        <LoadingIndicator visible={isLoading} />
-
-        <FancyAlert
-          visible={errorAlert.visible}
-          icon={
-            <Ionicons
-              name={Platform.OS === "ios" ? "ios-close-outline" : "md-close"}
-              size={36}
-              color="#FFFFFF"
-            />
-          }
-          customize={{
-            accentColor: '#C3272B',
-            backgroundColor: '#FFFFFF',
-            contentTextStyle: {}, // optional
-            btnTextStyle: {
-              color: '#FFFFFF',
-              marginLeft: 8
-            }
-          }}
-          message={errorAlert.message}
-          btnText="OK"
-          onRequestClose={this.hideErrorAlert}
-        />
-      </View>
-    );
-  };
+      <FancyAlert
+        visible={visible}
+        icon={<View style={{
+          flex: 1,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'red',
+          borderRadius: '50%',
+          width: '100%',
+        }}><Text>🤓</Text></View>}
+        style={{ backgroundColor: 'white' }}
+      >
+        <Text style={{ marginTop: -16, marginBottom: 32 }}>Hello there</Text>
+      </FancyAlert>
+    </View>
+  )
 }
+
+export default App;
 ```
 
 ## Reference
@@ -127,17 +67,15 @@ export default class MyComponent extends Component {
 
 ### FancyAlert
 
-| Property       | Type   | Required | Default    | Description                                            |
-| -------------- | ------ | -------- | ---------- | ------------------------------------------------------ |
-| visible        | bool   | yes      | n/a        | Whether the alert should be visible                    |
-| icon           | node   | yes      | n/a        | The icon to show in the alert                          |
-| customize      | object | yes      | n/a        | `{ accentColor: string, backgroundColor: string, contentTextStyle: StyleSheet, btnTextStyle: StyleSheet }` |
-| message        | string | yes      | n/a        | The message to show the user                           |
-| btnText        | string | yes      | n/a        | The text to put inside the button                      |
-| onRequestClose | func   | no       | () => null | The action to run when the user taps the button        |
+| Property       | Type   | Required | Default      | Description                                            |
+| -------------- | ------ | -------- | ------------ | ------------------------------------------------------ |
+| visible        | bool   | yes      | n/a          | Whether the alert should be visible                    |
+| icon           | node   | yes      | n/a          | The icon to show in the alert                          |
+| style          | object | no       | `{}`         | Like your usual style prop in any View                 |
+| onRequestClose | func   | no       | `() => void` | The action to run when the user taps the button        |
 
 * NOTE -
-  No dialog is closed by tapping the blurred background.
+  Alerts are not dismissed by tapping the blurry background
 
 ## Changelog
 
@@ -145,3 +83,4 @@ export default class MyComponent extends Component {
 * 0.0.2 - Android issue fixed
 * 0.0.3 - Added extra customization options
 * 1.0.0 - Years later I decided to package everything and release 🎉🥳
+* 2.0.0 - **BREAKING CHANGES** Updated `FancyAlert` to be more intuitive and more generic

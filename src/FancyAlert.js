@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Modal, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, Modal, StyleSheet, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -44,31 +44,19 @@ const styles = StyleSheet.create({
   },
 });
 
-const FancyAlert = ({
-  visible, onRequestClose, icon, message, btnText, customize: { accentColor, backgroundColor, contentTextStyle, btnTextStyle }
-}) => (
+const FancyAlert = ({ visible, onRequestClose, icon, children, style }) => (
   <Modal visible={visible} animationType="fade" transparent onRequestClose={onRequestClose}>
     <View style={styles.container}>
-      <View style={[styles.iconCircle, { top: 32, backgroundColor: accentColor, borderColor: backgroundColor }]}>
+      <View style={[styles.iconCircle, { top: 32, borderColor: style.backgroundColor }]}>
         {icon}
       </View>
 
-      <View style={[styles.content, { backgroundColor }]}>
-        <View style={[styles.iconCircle, { top: -32, backgroundColor: accentColor, borderColor: backgroundColor }]}>
+      <View style={[styles.content, { backgroundColor: style.backgroundColor }]}>
+        <View style={[styles.iconCircle, { top: -32, borderColor: style.backgroundColor }]}>
           {icon}
         </View>
 
-        <Text style={[contentTextStyle, { top: -16, textAlign: 'center' }]}>
-          {message}
-        </Text>
-
-        <TouchableOpacity onPress={onRequestClose}>
-          <View style={[styles.btnPrimary, { backgroundColor: accentColor }]}>
-            <Text style={btnTextStyle}>
-              {btnText}
-            </Text>
-          </View>
-        </TouchableOpacity>
+        {children}
       </View>
     </View>
   </Modal>
@@ -77,18 +65,12 @@ const FancyAlert = ({
 FancyAlert.propTypes = {
   visible: PropTypes.bool.isRequired,
   icon: PropTypes.node.isRequired,
-  message: PropTypes.string.isRequired,
-  btnText: PropTypes.string.isRequired,
-  customize: PropTypes.shape({
-    accentColor: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    contentTextStyle: PropTypes.object,
-    btnTextStyle: PropTypes.object,
-  }).isRequired,
+  style: PropTypes.object,
   onRequestClose: PropTypes.func,
 };
 
 FancyAlert.defaultProps = {
+  style: {},
   onRequestClose: () => null,
 };
 
