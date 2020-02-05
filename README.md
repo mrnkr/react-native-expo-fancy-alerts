@@ -7,10 +7,6 @@
 [npm-url]:https://npmjs.org/package/react-native-expo-fancy-alerts
 [downloads-image]:http://img.shields.io/npm/dm/react-native-expo-fancy-alerts.svg
 
-## Inspired on [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) - A simple, basic implementation of the beautiful alerts that lib brings to the table
-
-### Intro
-
 Adaptation of [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) for react native. Compatible with expo 🤓
 
 | ![Screenshot loading](screenshots/loading.png) | ![Screenshot success](screenshots/success.png) | ![Screenshot error](screenshots/error.png) |
