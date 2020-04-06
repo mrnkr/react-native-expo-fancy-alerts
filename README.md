@@ -73,6 +73,118 @@ export default App;
 * NOTE -
   Alerts are not dismissed by tapping the blurry background
 
+## Examples
+
+The following example illustrates how you can create a loading indicator for your entire app.
+If you're using redux you may have a part of your store which says whether you're loading something,
+you can get that flag and show one of the loading indicators offered by this lib.
+
+```javascript
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { LoadingIndicator } from 'react-native-expo-fancy-alerts';
+import { selectIsLoading } from 'selectors';
+
+const AppLoadingIndicator = () => {
+  const isLoading = useSelector(selectIsLoading);
+  return <LoadingIndicator visible={isLoading} />;
+}
+
+export default AppLoadingIndicator;
+```
+
+This next one is an error message that is also managed globally through redux.
+
+```javascript
+import React from 'react';
+import { Platform, Text, View, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { FancyAlert } from 'react-native-expo-fancy-alerts';
+import { Ionicons } from '@expo/vector-icons';
+import { ErrorCreators } from 'creators';
+import { selectError } from 'selectors';
+
+const AppErrorModal = () => {
+  const dispatch = useDispatch();
+  const { hasError, error } = useSelector(selectError);
+
+  const onRequestClose = React.useCallback(
+    () => {
+      dispatch(ErrorCreators.hideError());
+    },
+    [dispatch],
+  );
+
+  return <FancyAlert
+    style={styles.alert}
+    icon={
+      <View style={[ styles.icon, { borderRadius: 32 } ]}>
+        <Ionicons
+          name={Platform.select({ ios: 'ios-close', android: 'md-close' })}
+          size={36}
+          color="#FFFFFF"
+        />
+      </View>
+    }
+    onRequestClose={onRequestClose}
+    visible={hasError}
+  >
+    <View style={styles.content}>
+      <Text style={styles.contentText}>{error ? error.message : ''}</Text>
+
+      <TouchableOpacity style={styles.btn} onPress={onPress}>
+        <Text style={styles.btnText}>OK</Text>
+      </TouchableOpacity>
+    </View>
+  </FancyAlert>;
+}
+
+const styles = StyleSheet.create({
+  alert: {
+    backgroundColor: '#EEEEEE',
+  },
+  icon: {
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#C3272B',
+    width: '100%',
+  },
+  content: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: -16,
+    marginBottom: 16,
+  },
+  contentText: {
+    textAlign: 'center',
+  },
+  btn: {
+    borderRadius: 32,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+    alignSelf: 'stretch',
+    backgroundColor: '#4CB748',
+    marginTop: 16,
+    minWidth: '50%',
+    paddingHorizontal: 16,
+  },
+  btnText: {
+    color: '#FFFFFF',
+  },
+});
+
+export default AppErrorModal;
+
+```
+
 ## Changelog
 
 * 0.0.1 - Initial implementation - has layout issues on Android that WILL be fixed
@@ -80,3 +192,4 @@ export default App;
 * 0.0.3 - Added extra customization options
 * 1.0.0 - Years later I decided to package everything and release 🎉🥳
 * 2.0.0 - **BREAKING CHANGES** Updated `FancyAlert` to be more intuitive and more generic
+* 2.0.1 - Updated docs to include some real-life examples
