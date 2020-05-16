@@ -14,6 +14,14 @@ Adaptation of [nativescript-fancyalert](https://github.com/NathanWalker/nativesc
 
 ### Quick Start
 
+```sh
+$ npm i react-native-expo-fancy-alerts
+```
+Or
+```sh
+$ yarn add react-native-expo-fancy-alerts
+```
+
 ```javascript
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
