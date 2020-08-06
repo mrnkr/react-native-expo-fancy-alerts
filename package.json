@@ -3,6 +3,7 @@
   "version": "2.0.2",
   "description": "Inspired on nativescript-fancyalert by Nathan Walker - A simple, basic implementation of the beautiful alerts that lib brings to the table",
   "main": "index.js",
+  "typings": "typings.d.ts",
   "dependencies": {
     "prop-types": "^15.7.2"
   },

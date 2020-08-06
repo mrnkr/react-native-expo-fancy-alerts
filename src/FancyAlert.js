@@ -71,7 +71,7 @@ FancyAlert.propTypes = {
 
 FancyAlert.defaultProps = {
   style: {},
-  onRequestClose: () => null,
+  onRequestClose: () => {},
 };
 
 export default FancyAlert;

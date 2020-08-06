@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 });
 
 const LoadingIndicator = ({ visible }) => (
-  <Modal visible={visible} animationType="fade" transparent onRequestClose={() => null}>
+  <Modal visible={visible} animationType="fade" transparent>
     <View style={styles.container}>
       <View style={styles.content}>
         <ActivityIndicator color="#95A5A6" size="large" />

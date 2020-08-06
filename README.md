@@ -202,3 +202,4 @@ export default AppErrorModal;
 * 2.0.0 - **BREAKING CHANGES** Updated `FancyAlert` to be more intuitive and more generic
 * 2.0.1 - Updated docs to include some real-life examples
 * 2.0.2 - Updated dependencies
+* 2.1.0 - Added typescript typings
