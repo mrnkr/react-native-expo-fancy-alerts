@@ -47,7 +47,7 @@ const App = () => {
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: 'red',
-          borderRadius: '50%',
+          borderRadius: 50,
           width: '100%',
         }}><Text>🤓</Text></View>}
         style={{ backgroundColor: 'white' }}
