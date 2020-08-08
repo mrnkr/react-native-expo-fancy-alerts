@@ -2,10 +2,12 @@
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][npm-url]
+[![License][license]][npm-url]
 
 [npm-image]:http://img.shields.io/npm/v/react-native-expo-fancy-alerts.svg
 [npm-url]:https://npmjs.org/package/react-native-expo-fancy-alerts
 [downloads-image]:http://img.shields.io/npm/dm/react-native-expo-fancy-alerts.svg
+[license]:https://img.shields.io/github/license/mrnkr/react-native-expo-fancy-alerts
 
 Adaptation of [nativescript-fancyalert](https://github.com/NathanWalker/nativescript-fancyalert) for react native. Compatible with expo 🤓
 
